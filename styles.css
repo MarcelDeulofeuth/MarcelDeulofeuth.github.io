@@ -1,0 +1,94 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #0F172A;
+  color: #F8FAFC;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to bottom, #090446, #67074f, #c3095a, #f4d35f, #faf1ca);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero .text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero .text p {
+  font-size: 1.2rem;
+}
+
+/* Portfolio Section */
+.portfolio {
+  padding: 50px 20px;
+  background-color: #1E293B;
+}
+
+.portfolio h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project {
+  background-color: #334155;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.project img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Pixel Art Section */
+.pixel-art-section {
+  padding: 50px 20px;
+  background-color: #0F172A;
+  text-align: center;
+}
+
+.pixel-art-section h2 {
+  margin-bottom: 40px;
+}
+
+.pixel-art {
+  display: grid;
+  grid-template-columns: repeat(16, 20px);
+  grid-template-rows: repeat(16, 20px);
+  gap: 2px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.pixel {
+  width: 20px;
+  height: 20px;
+  background-color: #1E293B;
+  animation: pixelAnimation 2s infinite;
+}
+
+@keyframes pixelAnimation {
+  0% { background-color: #1E293B; }
+  50% { background-color: #F472B6; }
+  100% { background-color: #1E293B; }
+}
