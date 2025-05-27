@@ -225,50 +225,91 @@ section p{
 
 
 
-
-
-
-footer{
-  background:#000;text-align:center;padding:40px 20px;color:#666;font-size:0.9em;border-top:2px solid #0064ff;position:relative;margin-top:100px;
+<style>
+footer {
+  background: #000;
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-size: 0.9em;
+  border-top: 2px solid #0064ff;
+  position: relative;
+  margin-top: 100px;
 }
-footer p{
-  font-size:0.9em;line-height:1.4em;
+footer p {
+  font-size: 0.9em;
+  line-height: 1.4em;
 }
-@media(max-width:1000px){
-  .hero h1{font-size:2.5em;}
-  .hero-inner{flex-direction:column;gap:30px;padding:20px;}
-  .project-featured{grid-template-columns:1fr;}
+
+@media(max-width:1000px) {
+  .hero h1 { font-size: 2.5em; }
+  .hero-inner { flex-direction: column; gap: 30px; padding: 20px; }
+  .project-featured { grid-template-columns: 1fr; }
 }
-@media(max-width:600px){
-  .hero h1{font-size:2em;}
-  nav ul{gap:10px;}
-  nav ul li a{font-size:0.9em;}
-  .profile-photo-wrapper{width:180px;height:180px;}
-  .profile-photo-wrapper::before{width:220px;height:220px;}
-  .profile-photo-container{width:180px;height:180px;}
-  .hero{padding:0 20px;}
-  .hero-content{max-width:100%;}
-  .frase-brillo div{font-size:1.4em;}
-  #learning .learning-container{gap:20px;}
-  .project-featured{gap:20px;}
-  .carousel-item{min-width:200px;}
-  .event-content{margin-left:30px;padding:15px;}
+@media(max-width:600px) {
+  .hero h1 { font-size: 2em; }
+  nav ul { gap: 10px; }
+  nav ul li a { font-size: 0.9em; }
+  .profile-photo-wrapper { width: 180px; height: 180px; }
+  .profile-photo-wrapper::before { width: 220px; height: 220px; }
+  .profile-photo-container { width: 180px; height: 180px; }
+  .hero { padding: 0 20px; }
+  .hero-content { max-width: 100%; }
+  .frase-brillo div { font-size: 1.4em; }
+  #learning .learning-container { gap: 20px; }
+  .project-featured { gap: 20px; }
+  .carousel-item { min-width: 200px; }
+  .event-content { margin-left: 30px; padding: 15px; }
+}
+
+/* Centrado del texto principal */
+.hero-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Botón de descarga */
+.call-to-action {
+  text-align: center;
+  margin-top: 30px;
+}
+.descargar-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0064ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: background-color 0.3s;
+  /* margin-left eliminado para centrar correctamente */
+}
+.descargar-btn:hover {
+  background-color: #004bb5;
 }
 </style>
 </head>
-<body>
+
+<body oncontextmenu="return false">
 <header>
-    <div class="logo">Dev</div>
-    <nav>
-        <ul>
-            <li><a href="#about">Sobre mí</a></li>
-            <li><a href="#learning">Lo que estoy aprendiendo</a></li>
-            <li><a href="#projects">Proyectos</a></li>
-            <li><a href="#experience">Experiencia</a></li>
-            <li><a href="#contact">Contacto</a></li>
-        </ul>
-    </nav>
+  <div class="logo">Dev</div>
+  <nav>
+    <ul>
+      <li><a href="#about">Sobre mí</a></li>
+
+                  <li><a href="#experience">Experiencia</a></li>
+
+      <li><a href="#learning">Aprendiendo</a></li>
+      <li><a href="#Tecnologías">Tecnologías</a></li>
+
+      <li><a href="#contact-container">Proyectos</a></li>
+      <li><a href="#estudios-seccion">Estudios</a></li>
+    </ul>
+  </nav>
 </header>
+
 <div class="hero" id="hero">
   <div class="hero-inner">
     <div class="left-side">
@@ -277,16 +318,27 @@ footer p{
       </div>
     </div>
     <div class="hero-content">
-      <h1>Desarrollador de Software</h1>
+      <h1>Desarrollador de<br>Software</h1>
       <div class="call-to-action">
-        <button onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'});">Ver Proyectos</button>
+        <a href="archivos/Hoja_Vida.pdf" download class="descargar-btn">Ver Hoja de Vida</a>
       </div>
     </div>
   </div>
 </div>
 
-
-
+<script>
+// Bloquear teclas comunes de inspección
+document.addEventListener('keydown', function (e) {
+  if (
+    e.key === 'F12' ||
+    (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+    (e.ctrlKey && e.key === 'U')
+  ) {
+    e.preventDefault();
+    alert("Acción deshabilitada.");
+  }
+});
+</script>
 
 
 
@@ -294,21 +346,15 @@ footer p{
 
 
 <section class="frase-brillo">
-  <div>"Si tiene que tragarse dos sapos, tráguese primero el más feo" - Brian Tracy</div>
+  <div>"Me rediseñé sin cambiar la esencia. Solo cambié la interfaz."— Hernán Patiño, UX Specialist</div>
 </section>
 <section id="about">
     <h2>Sobre Mí</h2>
     <p>
-      Tengo una trayectoria breve pero intensa: 1 año como freelance, 6 meses como practicante en seguridad en Oncor, y 6 meses como desarrollador contratado utilizando Python y Laravel. Esta experiencia me ha brindado una visión integral: comprender al cliente, asegurar la integridad de los datos y crear soluciones eficientes en el front y backend.
-      
-      Mi meta es seguir evolucionando, integrando nuevas tecnologías, principios de usabilidad y seguridad. Siempre apuntando a un balance perfecto entre funcionalidad, experiencia y protección.
+Apasionado por la tecnología y en constante búsqueda de nuevos conocimientos, me he formado como desarrollador con una fuerte orientación hacia el aprendizaje continuo y la aplicación práctica de lo que descubro. A lo largo de mi trayectoria, he tenido la oportunidad de participar en el desarrollo de aplicaciones completas, tanto de forma individual como colaborando dentro de equipos de trabajo multidisciplinarios.
+
     </p>
 </section>
-
-
-
-
-
 
 
 
@@ -424,7 +470,7 @@ footer p{
 .timeline::before {
   content: '';
   position: absolute;
-  left: 60px; /* Colocamos la línea exactamente donde están los puntos */
+  left: 60px;
   top: 0;
   bottom: 0;
   width: 4px;
@@ -444,7 +490,7 @@ footer p{
 .timeline-event::before {
   content: '';
   position: absolute;
-  left: 53px; /* Centrado sobre la línea azul */
+  left: 53px;
   top: 18px;
   width: 14px;
   height: 14px;
@@ -456,7 +502,7 @@ footer p{
 
 .event-icon {
   position: absolute;
-  left: 20px;
+  left: 5px; /* Movido más a la izquierda */
   top: 10px;
   width: 40px;
   height: 40px;
@@ -497,39 +543,37 @@ footer p{
 </style>
 
 <section id="experience" class="experiencia-laboral">
-  <h2>Experiencia Laboral</h2>
-  <p>1 año como freelance, 6 meses en seguridad (Oncor) y 6 meses desarrollando con Python y Laravel. Esta combinación me ha dado una perspectiva completa del ciclo de desarrollo, la importancia de la seguridad y la integración efectiva entre frontend y backend.</p>
+  <h2>Experiencia </h2>
+  <p>Experiencia de más de un año en Oncor en el área tecnológica y más de un año como freelance en desarrollo web y móvil. Estas experiencias me han permitido trabajar en el ciclo completo de desarrollo, crear soluciones reales y adaptar la tecnología a distintos contextos empresariales.</p>
 
   <div class="timeline-container">
     <div class="timeline">
 
       <div class="timeline-event">
         <div class="event-icon">
-          <img src="yo.png" alt="Icono Freelance">
+          <img src="img/oncor.jpg" alt="Icono Oncor">
+        </div>
+        <div class="event-content">
+          <h3>Área Tecnológica – Oncor (1 Año y 3 Meses)</h3>
+          <p>
+            ✧ Desarrollar aplicaciones tanto a nivel de modelos relacionales como de código.<br>
+            ✧ Configurar entornos de producción para implementaciones tecnológicas en diversas áreas de la empresa y para los clientes.<br>
+            ✧ Utilizar frameworks como Laravel y Django para la creación de aplicaciones web, integrando microservicios y APIs.<br>
+            ✧ Crear software para la solicitud, aprobación y seguimiento en tiempo real de servicios.<br>
+            ✧ Digitalizar formularios manuales mediante la creación de formularios electrónicos.<br>
+            ✧ Implementar aplicaciones para el control de ingresos y salidas de vehículos.<br>
+            ✧ Desarrollar dashboards interactivos en aplicaciones web con el uso de Flask.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="event-icon">
+          <img src="img/freelance.png" alt="Icono Freelance">
         </div>
         <div class="event-content">
           <h3>Freelance (1 Año)</h3>
-          <p>Adaptación a diversos proyectos, comunicación directa con clientes, entrega ágil y soluciones personalizadas. Experiencia trabajando desde cero hasta el despliegue final.</p>
-        </div>
-      </div>
-
-      <div class="timeline-event">
-        <div class="event-icon">
-          <img src="yo.png" alt="Icono Seguridad">
-        </div>
-        <div class="event-content">
-          <h3>Seguridad en Oncor (6 Meses)</h3>
-          <p>Prácticas en ciberseguridad, análisis de vulnerabilidades, implementación de estándares y políticas de protección de datos.</p>
-        </div>
-      </div>
-
-      <div class="timeline-event">
-        <div class="event-icon">
-          <img src="yo.png" alt="Icono Desarrollo">
-        </div>
-        <div class="event-content">
-          <h3>Desarrollador Contratado (6 Meses)</h3>
-          <p>Creación de proyectos backend con Python y Laravel, integración con sistemas externos, diseño de APIs RESTful y trabajo colaborativo con frontend. Participación en despliegues continuos, pruebas automatizadas y documentación técnica para asegurar calidad y escalabilidad.</p>
+          <p>He trabajado en el desarrollo de páginas web personalizadas y actualmente participo en el desarrollo de una aplicación móvil. Experiencia en trato directo con clientes, desarrollo desde cero y despliegue final de soluciones a medida.</p>
         </div>
       </div>
 
@@ -576,16 +620,8 @@ footer p{
 
 
 
-
-
-
-
-
-
-
-
 <section id="learning">
-  <h2>Lo que estoy aprendiendo</h2>
+  <h2>Aprendiendo</h2>
   <p>Estoy expandiendo mi conocimiento para ofrecer soluciones escalables, ágiles e intuitivas, basándome en mi experiencia previa y sumando herramientas actuales.</p>
   <div class="learning-container">
     <div class="learning-item">
@@ -665,7 +701,7 @@ footer p{
 
 
 
-<section class="tech-logos">
+<section  id="Tecnologías" class="tech-logos">
   <h2>Tecnologías</h2>
   <p>Manejo diversas tecnologías y estoy abierto a adoptar nuevas herramientas según las necesidades del proyecto.</p>
   <div class="logos-container">
@@ -763,7 +799,7 @@ img {
   <div class="disintegration-container"></div>
 
   <!-- Contenido -->
-  <div class="projects-content" style="margin-left: 150px;">
+  <div class="projects-content" >
     <h2 class="pixel-title">Proyectos</h2>
     <p class="pixel-intro">Aquí encontrarás proyectos profesionales, freelance y en curso.</p>
 
@@ -773,112 +809,13 @@ img {
   <button onclick="filterProjects('all')">Todos</button>
   <button onclick="filterProjects('Profesional')">Profesional</button>
   <button onclick="filterProjects('Freelance')">Freelance</button>
-  <button onclick="filterProjects('En curso')">En curso</button>
+  <!-- <button onclick="filterProjects('En curso')">En curso</button> -->
 </div>
 
 
-    <!-- Lista de proyectos -->
-    <div class="project-list" id="project-list">
-      <!-- PROYECTOS PROFESIONALES (x3) -->
-      <div class="project-card" data-type="Profesional">
-        <span class="status-dot green"></span>
-        <img src="OTECH.png" alt="OTECH">
-        <h4>OTECH <small>[Profesional]</small></h4>
-        <p>Solución digital para trazabilidad y control en proyectos TI.</p>
-        <button onclick="showDetails(this)">Ver más</button>
-        <div class="project-details">
-          <ul>
-            <li><img src="img/node.png" class="lang-icon"><img src="img/mongodb.png" class="lang-icon"><img src="img/react.png" class="lang-icon"></li>
-            <li>Gestión de requerimientos y dashboards ejecutivos.</li>
-            <li>Integración con plataformas externas.</li>
-            <li>Mejora del 60% en tiempos de respuesta.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="project-card" data-type="Profesional">
-        <span class="status-dot green"></span>
-        <img src="corp_dash.png" alt="Corporate Dashboard">
-        <h4>Dashboard Corporativo <small>[Profesional]</small></h4>
-        <p>Herramienta para análisis financiero y KPIs en tiempo real.</p>
-        <button onclick="showDetails(this)">Ver más</button>
-        <div class="project-details">
-          <ul>
-            <li><img src="img/angular.png" class="lang-icon"><img src="img/python.png" class="lang-icon"></li>
-            <li>Visualización de datos financieros y operativos.</li>
-            <li>Permisos según rol de usuario.</li>
-            <li>Automatización de reportes mensuales.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="project-card" data-type="Profesional">
-        <span class="status-dot green"></span>
-        <img src="erp.png" alt="ERP">
-        <h4>Sistema ERP <small>[Profesional]</small></h4>
-        <p>Gestión de inventario, RRHH y contabilidad en una sola suite.</p>
-        <button onclick="showDetails(this)">Ver más</button>
-        <div class="project-details">
-          <ul>
-            <li><img src="img/laravel.png" class="lang-icon"><img src="img/vue.png" class="lang-icon"> </li>
-            <li>Integración bancaria y conciliación automática.</li>
-            <li>Gestión de roles complejos.</li>
-            <li>Multiempresa y multiusuario.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- PROYECTOS FREELANCE (x3) -->
-      <div class="project-card" data-type="Freelance">
-        <span class="status-dot green"></span>
-        <img src="form_freelance.png" alt="Formulario Freelance">
-        <h4>Encuestas Web <small>[Freelance]</small></h4>
-        <p>Plataforma adaptable para captura de encuestas desde cualquier dispositivo.</p>
-        <button onclick="showDetails(this)">Ver más</button>
-        <div class="project-details">
-          <ul>
-            <li><img src="img/php.png" class="lang-icon"><img src="img/mysql.png" class="lang-icon"></li>
-            <li>Reportes gráficos y exportación en PDF.</li>
-            <li>Clientes gestionan sus formularios en tiempo real.</li>
-            <li>Desarrollado como proyecto freelance.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="project-card" data-type="Freelance">
-        <span class="status-dot green"></span>
-        <img src="landing_freelance.png" alt="Landing Page">
-        <h4>Landing Page Promocional <small>[Freelance]</small></h4>
-        <p>Sitio estático para captación de leads con formulario integrado.</p>
-        <button onclick="showDetails(this)">Ver más</button>
-        <div class="project-details">
-          <ul>
-            <li><img src="img/html.png" class="lang-icon"><img src="img/css.png" class="lang-icon"><img src="img/js.png" class="lang-icon"> </li>
-            <li>Diseño optimizado para móviles.</li>
-            <li>Formulario de contacto con notificación por email.</li>
-            <li>Diseño personalizado según identidad del cliente.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="project-card" data-type="Freelance">
-        <span class="status-dot green"></span>
-        <img src="ecommerce.png" alt="Tienda Online">
-        <h4>Tienda Online <small>[Freelance]</small></h4>
-        <p>Plataforma de e-commerce para venta de productos artesanales.</p>
-        <button onclick="showDetails(this)">Ver más</button>
-        <div class="project-details">
-          <ul>
-            <li><img src="img/woocommerce.png" class="lang-icon"> WooCommerce</li>
-            <li>Pasarela de pagos integrada.</li>
-            <li>Diseño responsivo con catálogo dinámico.</li>
-            <li>Gestión de inventario y pedidos.</li>
-          </ul>
-        </div>
-      </div>
 
       <!-- PROYECTO EN CURSO (x1) -->
-      <div class="project-card" data-type="En curso">
+      <!-- <div class="project-card" data-type="En curso">
         <span class="status-dot red"></span>
         <img src="movilidad.png" alt="App de Movilidad">
         <h4>Movilidad Urbana <small>[En curso]</small></h4>
@@ -893,7 +830,192 @@ img {
           </ul>
         </div>
       </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Lista de proyectos -->
+    <div class="project-list" id="project-list">
+      <!-- PROYECTOS PROFESIONALES (x3) -->
+      <div class="project-card" data-type="Profesional">
+        <span class="status-dot green"></span>
+        <img src="img/otech.png"OTECH">
+        <h4>OTECH <small>[Profesional]</small></h4>
+        <p>Aplicativo empresarial para gestionar el proceso completo de compras, desde la solicitud hasta la generación de informes</p>
+        <button onclick="showDetails(this)">Ver más</button>
+        <div class="project-details">
+          <ul>
+            <li><img src="img/html.png" class="lang-icon"><img src="img/css.png" class="lang-icon"><img src="img/python.png" class="lang-icon"><img src="img/django.png" class="lang-icon"><img src="img/sql.png" class="lang-icon"></li>
+    <li>Creación de solicitudes de compra.</li>
+    <li>Generación de órdenes de compra.</li>
+    <li>Notificaciones automáticas a clientes.</li>
+    <li>Descarga de informes en formato Excel.</li>
+    <li>Filtrado de información detallada.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card" data-type="Profesional">
+        <span class="status-dot green"></span>
+        <img src="img/dashboard.png" alt="Corporate Dashboard">
+        <h4>Dashboard de Servicios <small>[Profesional]</small></h4>
+        <p>Dashboard de Servicios.</p>
+        <button onclick="showDetails(this)">Ver más</button>
+        <div class="project-details">
+          <ul>
+            <li><img src="img/html.png" class="lang-icon"><img src="img/css.png" class="lang-icon"><img src="img/javascript.png" class="lang-icon"><img src="img/php.png" class="lang-icon"><img src="img/laravel.png" class="lang-icon"><img src="img/sql.png" class="lang-icon"></li>
+    <li>Visualización de métricas operativas clave.</li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card" data-type="Profesional">
+        <span class="status-dot green"></span>
+        <img src="img/movilidaddashboard.png" alt="ERP">
+        <h4>Dashboard de Movilidad<small>[Profesional]</small></h4>
+        <p>Herramienta analítica diseñada para visualizar datos clave de movilidad y realizar análisis estratégicos para la toma de decisiones.</p>
+        <button onclick="showDetails(this)">Ver más</button>
+        <div class="project-details">
+          <ul>
+            <li><img src="img/html.png" class="lang-icon"><img src="img/css.png" class="lang-icon"><img src="img/javascript.png" class="lang-icon"><img src="img/php.png" class="lang-icon"><img src="img/laravel.png" class="lang-icon"><img src="img/sql.png" class="lang-icon"></li>
+    <li>Visualización de métricas operativas clave.</li>
+
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <!-- PROYECTOS FREELANCE (x3) -->
+      <div class="project-card" data-type="Profesional">
+        <span class="status-dot green"></span>
+        <img src="img/movilidad-operativo.png" alt="Formulario Freelance">
+        <h4>Aplicativo Operativo de Movilidad <small>[Profesional]</small></h4>
+        <p>Diseñada para el personal operativo que gestiona entradas, salidas y traslados de vehículos en terreno..</p>
+        <button onclick="showDetails(this)">Ver más</button>
+        <div class="project-details">
+          <ul>
+            <li><img src="img/html.png" class="lang-icon"><img src="img/css.png" class="lang-icon"><img src="img/javascript.png" class="lang-icon"><img src="img/php.png" class="lang-icon"><img src="img/laravel.png" class="lang-icon"><img src="img/sql.png" class="lang-icon"></li>
+    <li>Diligenciamiento de entradas, salidas y traslados de vehículos.</li>
+    <li>Flujo de tareas entre el personal operativo.</li>
+    <li>Minuta virtual con registro y envío automático en PDF.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card" data-type="Profesional">
+        <span class="status-dot green"></span>
+        <img src="img/dashboard2.png" alt="Landing Page">
+        <h4>Gestión de Servicios <small>[Profesional]</small></h4>
+        <p>Plataforma de administración y seguimiento de solicitudes de servicio, con enfoque en la comunicación entre técnicos y clientes</p>
+        <button onclick="showDetails(this)">Ver más</button>
+        <div class="project-details">
+          <ul>
+            <li><img src="img/html.png" class="lang-icon"><img src="img/css.png" class="lang-icon"><img src="img/javascript.png" class="lang-icon"><img src="img/php.png" class="lang-icon"><img src="img/laravel.png" class="lang-icon"><img src="img/sql.png" class="lang-icon"></li>
+    <li>Aprobación de solicitudes de servicios.</li>
+    <li>Notificaciones automáticas en cada aprobación.</li>
+    <li>Asignación de técnicos a los servicios.</li>
+    <li>Seguimiento en tiempo real por parte del cliente.</li>
+    <li>Chat individual por cada servicio para preguntas o notificaciones.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card" data-type="Profesional">
+        <span class="status-dot green"></span>
+        <img src="img/formE.png" alt="Tienda Online">
+        <h4>Formularios Evaluativos <small>[Profesional]</small></h4>
+        <p>Formulario digital para evaluación operativa.</p>
+        <button onclick="showDetails(this)">Ver más</button>
+        <div class="project-details">
+          <ul>
+            <li><img src="img/html.png" class="lang-icon"><img src="img/css.png" class="lang-icon"><img src="img/javascript.png" class="lang-icon"><img src="img/php.png" class="lang-icon"><img src="img/laravel.png" class="lang-icon"><img src="img/sql.png" class="lang-icon"></li>
+    <li>Envío de formularios desde todas las regionales.</li>
+    <li>Notificaciones automáticas por cada envío.</li>
+    <li>Inclusión de múltiples imágenes por registro.</li>
+    <li>Generación automática de PDF para cada formulario enviado.</li>
+    <li>Envío del PDF al correo correspondiente.</li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="project-card" data-type="Freelance">
+        <span class="status-dot red"></span>
+        <img src="img/pag.png" alt="App de Movilidad">
+        <h4>Páginas Web <small>[Freelance</small></h4>
+        <p>Diseño y desarrollo de páginas web adaptadas a dispositivos móviles, con funcionalidades clave para negocios.</p>
+        <button onclick="showDetails(this)">Ver más</button>
+        <div class="project-details">
+          <ul>
+            <li><img src="img/html.png" class="lang-icon"><img src="img/css.png" class="lang-icon"><img src="img/react.png" class="lang-icon"><img src="img/javascript.png" class="lang-icon"></li>
+    <li>Diseño optimizado para móviles.</li>
+    <li>Formulario de contacto con notificación por email.</li>
+    <li>Diseño personalizado según la identidad visual del cliente.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROYECTO EN CURSO (x1) -->
+      <div class="project-card" data-type="Freelance">
+        <span class="status-dot red"></span>
+        <img src="img/app_movil.png" alt="App de Movilidad">
+        <h4>App Movil <small>[En curso]</small></h4>
+        <p>Aplicación móvil aún en desarrollo, orientada a mejorar la interacción del cliente con los procesos del negocio.</p>
+        <button onclick="showDetails(this)">Ver más</button>
+        <div class="project-details">
+          <ul>
+            <li><img src="img/react.png" class="lang-icon"></li>
+ <li>Diseñada para una experiencia intuitiva desde dispositivos móviles.</li>
+    <li>Integración futura con inteligencia artificial para mejorar automatización y análisis de datos.</li>
+
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+
+
     </div>
+
+
+
+
+
+    
   </div>
 
   <!-- Imagen lateral -->
@@ -995,15 +1117,108 @@ img {
   align-items: flex-start;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .projects-content {
   max-width: 900px;
-  margin-right: 350px;
+  margin-right: 250px;
   background-color: #1a1a1a;
   padding: 40px;
   z-index: 5;
   color: #ccc;
   flex-grow: 1;
+  margin-left: 150px;
 }
+
+/* Imagen lateral (escondida o reubicada en móvil) */
+.side-image {
+  position: sticky;
+  top: 120px;
+  right: 60px;
+  width: 300px;
+  max-width: 20vw;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+/* Estilos específicos para móviles */
+@media (max-width: 768px) {
+  .projects-content {
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .side-image {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 20px auto; /* Cambiado: ahora queda pegada a la derecha */
+    text-align: right;
+  }
+
+  .project-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .project-card {
+    min-width: 80%;
+    background: #222;
+    padding: 16px;
+    border: 1px solid #00ffff;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .pixel-title {
   color: #00ffee;
@@ -1215,20 +1430,53 @@ img {
 
 
 
+<!-- Fondo negro que cubre de lado a lado -->
+<div id = 'estudios-seccion' class="estudios-seccion">
 
+  <!-- TÍTULO estilo “Proyectos” -->
+  <h2 class="estudios-titulo">Estudios</h2>
 
-<div class="estudio-bloque">
-  <div class="estudio-contenido">
-    <img src="yo.png" class="estudio-icono" />
-    <div class="estudio-texto">
-      <div class="estudio-titulo">Curso de Google - 2025</div>
-      <div class="estudio-descripcion">Certificado en desarrollo de software por Google.</div>
+  <!-- BLOQUES ORIGINALES INTACTOS -->
+  <div class="estudio-bloque">
+    <div class="estudio-contenido">
+      <img src="img/umb.png" class="estudio-icono" />
+      <div class="estudio-texto">
+        <div class="estudio-titulo">Ingeniería de software - Presente cursando(virtual)</div>
+        <div class="estudio-descripcion">Universidad Manuela Beltrán.</div>
+      </div>
     </div>
   </div>
+
+  <div class="estudio-bloque">
+    <div class="estudio-contenido">
+      <img src="img/sena.jpg" class="estudio-icono" />
+      <div class="estudio-texto">
+        <div class="estudio-titulo">Técnico en Programación de Software - 2024</div>
+        <div class="estudio-descripcion">Servicio Nacional de Aprendizaje(SENA)</div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* FONDO negro para toda la sección */
+.estudios-seccion {
+  background-color: #000; /* negro absoluto */
+  padding: 60px 0;
+  width: 100%;
+}
+
+/* TÍTULO tipo “Proyectos” */
+.estudios-titulo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.5rem;
+  color: cyan;
+  text-align: center;
+  margin-bottom: 40px;
+}
 
 .estudio-bloque {
   font-family: 'Press Start 2P', monospace;
@@ -1296,19 +1544,6 @@ img {
   max-width: 500px;
 }
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
