@@ -273,47 +273,43 @@ footer p {
 
 
 
-
-
 <style>
-  /* Estilo general del nav */
-  nav {
-    position: relative;
-  }
+/* Estilo general del nav */
+nav {
+  position: relative;
+}
 
-  nav ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-  }
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
 
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1em;
-  }
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
 
-  /* Botón hamburguesa */
-  .menu-toggle {
-    display: none;
-    cursor: pointer;
-    color: white;
-    font-size: 2em;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1001;
-  }
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  color: white;
+  font-size: 2em;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 1001;
+}
 
-  /* Estilos móviles */
-  @media(max-width: 768px) {
+/* Estilos móviles */
+@media(max-width: 768px) {
   nav ul {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     display: none;
     background-color: #000;
     width: 100%;
@@ -321,42 +317,18 @@ footer p {
     top: 60px;
     left: 0;
     padding: 20px 0;
-    z-index: 1000;
-    transition: all 0.3s ease-in-out;
+    z-index: 999;
+    transition: all 0.3s ease;
   }
 
   nav ul.show {
     display: flex;
   }
 
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  nav ul li a {
-    font-size: 1rem; /* tamaño más pequeño */
-    color: white;
-    text-align: center;
-  }
-
   .menu-toggle {
     display: block;
-    cursor: pointer;
-    color: white;
-    font-size: 2em;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1001;
-  }
-
-  header {
-    position: relative;
-    background-color: #000;
-    z-index: 1002;
   }
 }
-
 </style>
 
 <script>
@@ -365,6 +337,7 @@ footer p {
     navUl.classList.toggle("show");
   }
 
+  // Cierra el menú al hacer clic en cualquier enlace
   document.addEventListener("DOMContentLoaded", () => {
     const menuItems = document.querySelectorAll("nav ul li a");
     const navUl = document.querySelector("nav ul");
