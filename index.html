@@ -220,103 +220,12 @@ section p{
 
 
 
-
-
 <style>
-footer {
-  background: #000;
-  text-align: center;
-  padding: 40px 20px;
-  color: #666;
-  font-size: 0.9em;
-  border-top: 2px solid #0064ff;
+/* Estilo general del nav */
+nav {
   position: relative;
-  margin-top: 100px;
-}
-footer p {
-  font-size: 0.9em;
-  line-height: 1.4em;
 }
 
-@media(max-width:1000px) {
-  .hero h1 { font-size: 2.5em; }
-  .hero-inner { flex-direction: column; gap: 30px; padding: 20px; }
-  .project-featured { grid-template-columns: 1fr; }
-}
-
-/* Modo responsive con hamburguesa */
-@media(max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    display: none;
-    background-color: #000;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    padding: 20px 0;
-    z-index: 999;
-  }
-
-  nav ul.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-    cursor: pointer;
-    color: white;
-    font-size: 1.5em;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    z-index: 1000;
-  }
-}
-
-@media(max-width:600px) {
-  .hero h1 { font-size: 2em; }
-  .profile-photo-wrapper { width: 180px; height: 180px; }
-  .profile-photo-wrapper::before { width: 220px; height: 220px; }
-  .profile-photo-container { width: 180px; height: 180px; }
-  .hero { padding: 0 20px; }
-  .hero-content { max-width: 100%; }
-  .frase-brillo div { font-size: 1.4em; }
-  #learning .learning-container { gap: 20px; }
-  .project-featured { gap: 20px; }
-  .carousel-item { min-width: 200px; }
-  .event-content { margin-left: 30px; padding: 15px; }
-}
-
-/* Centrado del texto principal */
-.hero-content {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Botón de descarga */
-.call-to-action {
-  text-align: center;
-  margin-top: 30px;
-}
-.descargar-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #0064ff;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1em;
-  transition: background-color 0.3s;
-}
-.descargar-btn:hover {
-  background-color: #004bb5;
-}
-
-/* Estilo del nav por defecto en escritorio */
 nav ul {
   display: flex;
   gap: 20px;
@@ -331,36 +240,77 @@ nav ul li a {
   text-decoration: none;
 }
 
-/* Oculta el ícono por defecto (se muestra solo en móvil) */
+/* Botón hamburguesa */
 .menu-toggle {
   display: none;
+  cursor: pointer;
+  color: white;
+  font-size: 2em;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 1001;
+}
+
+/* Estilos móviles */
+@media(max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    background-color: #000;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px 0;
+    z-index: 999;
+    transition: all 0.3s ease;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }
 </style>
 
 <script>
-function toggleMenu() {
-  const navUl = document.querySelector('nav ul');
-  navUl.classList.toggle('show');
-}
+  function toggleMenu() {
+    const navUl = document.querySelector("nav ul");
+    navUl.classList.toggle("show");
+  }
+
+  // Cierra el menú al hacer clic en cualquier enlace
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuItems = document.querySelectorAll("nav ul li a");
+    const navUl = document.querySelector("nav ul");
+    menuItems.forEach(item => {
+      item.addEventListener("click", () => {
+        navUl.classList.remove("show");
+      });
+    });
+  });
 </script>
 
-</head>
+<header>
+  <div class="logo" style="color:white; font-weight:bold; font-size:1.2em; padding:15px 20px;">DEV</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav>
+    <ul>
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#experience">Experiencia</a></li>
+      <li><a href="#learning">Aprendiendo</a></li>
+      <li><a href="#Tecnologías">Tecnologías</a></li>
+      <li><a href="#contact-container">Proyectos</a></li>
+      <li><a href="#estudios-seccion">Estudios</a></li>
+    </ul>
+  </nav>
+</header>
 
-<body oncontextmenu="return false">
-  <header>
-    <div class="logo" style="color:white; font-weight:bold; font-size:1.2em; padding:15px 20px;">Dev</div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <nav>
-      <ul>
-        <li><a href="#about">Sobre mí</a></li>
-        <li><a href="#experience">Experiencia</a></li>
-        <li><a href="#learning">Aprendiendo</a></li>
-        <li><a href="#Tecnologías">Tecnologías</a></li>
-        <li><a href="#contact-container">Proyectos</a></li>
-        <li><a href="#estudios-seccion">Estudios</a></li>
-      </ul>
-    </nav>
-  </header>
 
 
 <div class="hero" id="hero">
