@@ -222,7 +222,6 @@ section p{
 
 
 
-
 <style>
 footer {
   background: #000;
@@ -244,15 +243,40 @@ footer p {
   .hero-inner { flex-direction: column; gap: 30px; padding: 20px; }
   .project-featured { grid-template-columns: 1fr; }
 }
+
+/* Modo responsive con hamburguesa */
+@media(max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    background-color: #000;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px 0;
+    z-index: 999;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5em;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1000;
+  }
+}
+
 @media(max-width:600px) {
   .hero h1 { font-size: 2em; }
-  nav ul { 
-    flex-direction: column; 
-    gap: 15px; 
-    align-items: center; 
-    padding: 10px 0;
-  }
-  nav ul li a { font-size: 1em; }
   .profile-photo-wrapper { width: 180px; height: 180px; }
   .profile-photo-wrapper::before { width: 220px; height: 220px; }
   .profile-photo-container { width: 180px; height: 180px; }
@@ -292,20 +316,40 @@ footer p {
   background-color: #004bb5;
 }
 
-/* Ajustes para que el menú sea responsivo */
+/* Estilo del nav por defecto en escritorio */
 nav ul {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
+  list-style: none;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Oculta el ícono por defecto (se muestra solo en móvil) */
+.menu-toggle {
+  display: none;
 }
 </style>
+
+<script>
+function toggleMenu() {
+  const navUl = document.querySelector('nav ul');
+  navUl.classList.toggle('show');
+}
+</script>
 
 </head>
 
 <body oncontextmenu="return false">
   <header>
-    <div class="logo">Dev</div>
+    <div class="logo" style="color:white; font-weight:bold; font-size:1.2em; padding:15px 20px;">Dev</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav>
       <ul>
         <li><a href="#about">Sobre mí</a></li>
