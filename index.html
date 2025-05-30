@@ -223,8 +223,6 @@ section p{
 
 
 
-
-
 <style>
 footer {
   background: #000;
@@ -248,8 +246,13 @@ footer p {
 }
 @media(max-width:600px) {
   .hero h1 { font-size: 2em; }
-  nav ul { gap: 10px; }
-  nav ul li a { font-size: 0.9em; }
+  nav ul { 
+    flex-direction: column; 
+    gap: 15px; 
+    align-items: center; 
+    padding: 10px 0;
+  }
+  nav ul li a { font-size: 1em; }
   .profile-photo-wrapper { width: 180px; height: 180px; }
   .profile-photo-wrapper::before { width: 220px; height: 220px; }
   .profile-photo-container { width: 180px; height: 180px; }
@@ -284,31 +287,37 @@ footer p {
   border-radius: 8px;
   font-size: 1em;
   transition: background-color 0.3s;
-  /* margin-left eliminado para centrar correctamente */
 }
 .descargar-btn:hover {
   background-color: #004bb5;
 }
+
+/* Ajustes para que el menú sea responsivo */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
 </style>
+
 </head>
 
 <body oncontextmenu="return false">
-<header>
-  <div class="logo">Dev</div>
-  <nav>
-    <ul>
-      <li><a href="#about">Sobre mí</a></li>
+  <header>
+    <div class="logo">Dev</div>
+    <nav>
+      <ul>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#experience">Experiencia</a></li>
+        <li><a href="#learning">Aprendiendo</a></li>
+        <li><a href="#Tecnologías">Tecnologías</a></li>
+        <li><a href="#contact-container">Proyectos</a></li>
+        <li><a href="#estudios-seccion">Estudios</a></li>
+      </ul>
+    </nav>
+  </header>
 
-                  <li><a href="#experience">Experiencia</a></li>
-
-      <li><a href="#learning">Aprendiendo</a></li>
-      <li><a href="#Tecnologías">Tecnologías</a></li>
-
-      <li><a href="#contact-container">Proyectos</a></li>
-      <li><a href="#estudios-seccion">Estudios</a></li>
-    </ul>
-  </nav>
-</header>
 
 <div class="hero" id="hero">
   <div class="hero-inner">
