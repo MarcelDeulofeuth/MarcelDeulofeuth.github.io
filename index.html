@@ -271,8 +271,6 @@ footer p {
 
 
 
-
-
 <style>
 /* Estilo general del nav */
 nav {
@@ -309,7 +307,7 @@ nav ul li a {
 @media(max-width: 768px) {
   nav ul {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* 👈 Esto hace que se alineen a la izquierda */
     display: none;
     background-color: #000;
     width: 100%;
@@ -323,6 +321,11 @@ nav ul li a {
 
   nav ul.show {
     display: flex;
+  }
+
+  nav ul li a {
+    font-size: 14px;       /* 👈 AQUÍ cambias el tamaño de letra solo en móvil */
+    padding-left: 20px;    /* 👈 AQUÍ mueves las letras un poquito a la izquierda */
   }
 
   .menu-toggle {
