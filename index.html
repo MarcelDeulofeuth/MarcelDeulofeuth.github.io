@@ -1213,7 +1213,25 @@ img {
   margin-left: 150px;
 }
 
-/* Imagen lateral (escondida o reubicada en móvil) */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .side-image {
   position: sticky;
   top: 120px;
@@ -1227,6 +1245,27 @@ img {
   flex-shrink: 0;
 }
 
+
+
+
+
+@media (max-width: 768px) {
+  .side-image {
+    right: 6px;
+  }
+}
+
+
+
+
+
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
 /* Estilos específicos para móviles */
 @media (max-width: 768px) {
   .projects-content {
@@ -1235,32 +1274,23 @@ img {
     padding: 20px;
   }
 
-  .side-image {
-    position: static;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 0 20px auto; /* Cambiado: ahora queda pegada a la derecha */
-    text-align: right;
-  }
 
   .project-list {
-    display: flex;
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: 1fr !important; /* Forzado para solo 1 columna en móvil */
     gap: 16px;
     padding-bottom: 10px;
-    scroll-snap-type: x mandatory;
   }
 
   .project-card {
-    min-width: 80%;
+    width: 100% !important;
     background: #222;
     padding: 16px;
     border: 1px solid #00ffff;
-    scroll-snap-align: start;
-    flex-shrink: 0;
   }
 }
+
+
 
 
 
@@ -1380,18 +1410,7 @@ img {
   vertical-align: middle;
 }
 
-.side-image {
-  position: sticky;
-  top: 120px;
-  right: 60px;
-  width: 300px;
-  max-width: 20vw;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  z-index: 10;
-  flex-shrink: 0;
-}
+
 
 .disintegration-container {
   position: absolute;
